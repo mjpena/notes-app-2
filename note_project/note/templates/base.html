@@ -1,0 +1,14 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}DjangoNote - The Best Note{% endblock title %}</title>
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'djangonote/style.css' %}" />
+    {% endblock stylesheets %}
+</head>
