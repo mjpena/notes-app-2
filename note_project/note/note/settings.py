@@ -23,9 +23,9 @@ TEMPLATE_DIR = [os.path.join(BASE_DIR, 'templates')]
 SECRET_KEY = 'r5+7s_ijaysp2p-jb@(e8$a^hgb0s6+xv0!-&)=-t+osu29%+5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'notes',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -119,3 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/var/www/souldeux/static'
+STTICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    )
