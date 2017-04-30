@@ -14,9 +14,15 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include, patterns
 from django.contrib import admin
+from note.views import index_view
 
 urlpatterns = [
+    #admin page
     url(r'^admin/', admin.site.urls),
+    #root url view
+    url(r'^$', index_view, name='index'),
+    # /notes view- redirects to url to figure out corresponding view
+    url(r'^notes/', include('notes.urls', namespace='notes')),
 ]
