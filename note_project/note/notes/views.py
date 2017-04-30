@@ -19,7 +19,7 @@ def home_view(request):
         else:
             messages.add_message(request, messages.INFO, "Authentication Failed")
             return HttpResponseRedirect(reverse('home'))
-    return render(request, 'note/home.html')
+    return render(request, 'notes/home.html')
     
 def index_view(request):
     notes = Note.objects.all()
