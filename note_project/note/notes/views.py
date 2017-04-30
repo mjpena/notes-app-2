@@ -21,26 +21,33 @@ def home_view(request):
             messages.add_message(request, messages.INFO, "Authentication Failed")
             return HttpResponseRedirect(reverse('home'))
     return render(request, 'home.html')
+
     
 def index_view(request):
     notes = Note.objects.all().order_by('-pubTime')
     return render(request, 'notes/index.html',{'notes':notes})
 
+
 def add_note(request):
     id = request.GET.get('id', None)
-    if id == None:
+    if id is None:
         note = None
     else:
-        note = Note.objects.get(id=id)
+        note = get_object_or_404(Note, id=id)
 	
 	if request.method == 'POST':
+		if request.POST.get('control') == 'delete':
+			note.delete()
+			messages.add_message(request, messages.INFO, 'Note Deleted!')
+			return HttpResponseRedirect(reverse('notes:index'))
+		
 		form = NoteForm(request.POST, instance=note)
 		if form.is_valid():
 			form.save()
 			messages.add_message(request, messages.INFO, 'Note Added!')
 			return HttpResponseRedirect(reverse('notes:index'))
 	else:
-	    form = NoteForm(instance=note)
+	     form = NoteForm(instance=note)
 		
 	return render(request, 'notes/addnote.html', {'form':form})
     
