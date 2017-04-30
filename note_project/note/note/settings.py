@@ -25,7 +25,7 @@ SECRET_KEY = 'r5+7s_ijaysp2p-jb@(e8$a^hgb0s6+xv0!-&)=-t+osu29%+5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #allows 404 message
-DEBUG = True
+DEBUG = False
 
 #allows 404 message
 ALLOWED_HOSTS = ['*']

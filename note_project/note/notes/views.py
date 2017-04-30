@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -27,14 +27,21 @@ def index_view(request):
     return render(request, 'notes/index.html',{'notes':notes})
 
 def add_note(request):
+    id = request.GET.get('id', None)
+    if id is not None:
+        note = get_object_or_404(Note, id=id)
+        #Note.objects.get(id=id)
+    else:
+        note = None
+        
 	if request.method == 'POST':
-		form = NoteForm(request.POST)
+		form = NoteForm(request.POST, instance = note)
 		if form.is_valid():
 			form.save()
 			messages.add_message(request, messages.INFO, 'Note Added!')
 			return HttpResponseRedirect(reverse('notes:index'))
 	else:
-		form = NoteForm()
+		form = NoteForm(instance=note)
 	return render(request, 'notes/addnote.html', {'form':form})
     
     
