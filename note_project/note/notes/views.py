@@ -28,20 +28,19 @@ def index_view(request):
 
 def add_note(request):
     id = request.GET.get('id', None)
-    if id is not None:
-        note = get_object_or_404(Note, id=id)
-        #Note.objects.get(id=id)
-    else:
+    if id == None:
         note = None
-        
+    else:
+        note = Note.objects.get(id=id)
+	
 	if request.method == 'POST':
-		form = NoteForm(request.POST, instance = note)
+		form = NoteForm(request.POST, instance=note)
 		if form.is_valid():
 			form.save()
 			messages.add_message(request, messages.INFO, 'Note Added!')
 			return HttpResponseRedirect(reverse('notes:index'))
 	else:
-		form = NoteForm(instance=note)
+	    form = NoteForm(instance=note)
+		
 	return render(request, 'notes/addnote.html', {'form':form})
-    
     
