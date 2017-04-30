@@ -23,7 +23,7 @@ def home_view(request):
     return render(request, 'home.html')
     
 def index_view(request):
-    notes = Note.objects.all()
+    notes = Note.objects.all().order_by('-pubTime')
     return render(request, 'notes/index.html',{'notes':notes})
 
 def add_note(request):

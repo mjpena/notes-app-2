@@ -36,7 +36,10 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#">Notes</a>
+                            <a href="{%url 'notes:index'%}">notes</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'notes:addnote'%}">add note</a>
                         </li>
                     </ul>
                 </div>

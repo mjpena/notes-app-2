@@ -13,7 +13,7 @@
 {% if notes %}
 	{% for note in notes %}
 	<h3 class="page-header">{{note.label}}</h3>
-	{{note.body|linebreaks}}
+	{{note.body}}
 		{% for tag in note.tags.all %}
 		{{tag}}{% if not forloop.last %} | {% endif %}
 		{% endfor %}
