@@ -9,7 +9,7 @@ class Note(models.Model):
     title = models.CharField(max_length=150)
     body = models.TextField()
     pubTime = models.DateTimeField(auto_now_add = True)
-    tags = models.ManyToManyField('Tag', related_name= 'notes')
+    tags = models.ManyToManyField('Tag', related_name= 'notes', blank= True)
     def __unicode__(self):
         return self.label
     

@@ -9,16 +9,16 @@
         <meta name="author" content="">
         <label>{% block label %}DjangoNote - The Best Note{% endblock label %}</label>
         {% block stylesheets %}
-        <link rel="stylesheet" href="{% static 'note/bootstrap.min.css' %}" />
-        <link rel="stylesheet" href="{% static 'note/bootstrap-theme.min.css' %}" />
-        <link rel="stylesheet" href="{% static 'note/theme.css' %}" />
+        <link rel="stylesheet" href="{% static 'notes/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'notes/bootstrap-theme.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'notes/theme.css' %}" />
         {% endblock stylesheets %}
     </head>
 
     {% block scriptload %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="{% static 'note/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'note/js/docs.min.js' %}"></script>
+    <script src="{% static 'notes/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'notes/js/docs.min.js' %}"></script>
     {% endblock scriptload %}
 
     <body role="document">
