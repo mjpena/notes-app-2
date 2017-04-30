@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
 from notes.models import Note, Tag
+from notes.forms import NoteForm
 # Create your views here.
 
 def home_view(request):
@@ -25,15 +26,6 @@ def index_view(request):
     notes = Note.objects.all()
     return render(request, 'notes/index.html',{'notes':notes})
 
-def add_note(request):
-    if request.method == 'POST':
-        form = NoteForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.add_message(request, messaegs.INFO, 'Note Added')
-            return HttpResponseRedirect(reverse('notes:index'))
-    else:
-        form = NoteForm()
-    return render(request, 'notes/addnote.html', {'form': form})
+
     
     
