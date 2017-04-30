@@ -16,13 +16,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include, patterns
 from django.contrib import admin
-from note.views import index_view
+from note.views import home_view
 
 urlpatterns = [
     #admin page
     url(r'^admin/', admin.site.urls),
     #root url view
-    url(r'^$', index_view, name='index'),
+    url(r'^$', home_view, name='home'),
     # /notes view- redirects to url to figure out corresponding view
     url(r'^notes/', include('notes.urls', namespace='notes')),
 ]

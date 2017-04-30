@@ -7,7 +7,7 @@ from django.http import HttpReponseRedirect
 
 # Create your views here.
 
-def index_view(request):
+def home_view(request):
     if request.method == 'POST':
         username = request.POST.get('username', None)
         password = request.POST.get('password', None)
@@ -15,11 +15,15 @@ def index_view(request):
         auth = authenticate(username = username, password=password)
         if auth is not None:
             login(request, auth)
-            return HttpResponseRedirect(reverse('notes:index'))
+            return HttpResponseRedirect(reverse('notes:home'))
         else:
             messages.add_messaeg(request, messages.INFO, "Authentication Failed")
             return HttpResponseRedirect(reverse('home'))
-    
     return render(request, 'home.html')
+    
+def index_view(request):
+    notes = Note.objects.all()
+    return render(request, 'notes/index.html',{'notes':notes})
+    
     
     
