@@ -19,8 +19,6 @@ from django.contrib import admin
 from note.views import home_view
 
 urlpatterns = [
-    #admin page
-    url(r'^admin/', admin.site.urls),
     #root url view
     url(r'^$', home_view, name='home'),
     # /notes view- redirects to url to figure out corresponding view

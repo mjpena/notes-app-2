@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
-
+from notes.models import Note, Tag
 # Create your views here.
 
 def home_view(request):
@@ -17,9 +17,9 @@ def home_view(request):
             login(request, auth)
             return HttpResponseRedirect(reverse('notes:home'))
         else:
-            messages.add_messaeg(request, messages.INFO, "Authentication Failed")
+            messages.add_message(request, messages.INFO, "Authentication Failed")
             return HttpResponseRedirect(reverse('home'))
-    return render(request, 'home.html')
+    return render(request, 'note/home.html')
     
 def index_view(request):
     notes = Note.objects.all()
