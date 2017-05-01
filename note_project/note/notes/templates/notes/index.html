@@ -9,20 +9,17 @@
 
 
 
-<div class='col-md-12'>
-{% if notes %}
-	{% for note in notes %}
-	<h3 class="page-header">{{note.label}}</h3>
-	{{note.body}}
-		{% for tag in note.tags.all %}
-		{{tag}}{% if not forloop.last %} | {% endif %}
+<div >
+	{% if notes %}
+		{% for note in notes %}
+		<h3 class="page-header">{{note.label}}</h3>
+		{{note.body}}
 		{% endfor %}
-	{% endfor %}
-{% else %}
-	<div class='alert alert-warning' align='center'>
-		<h3>No Notes Yet!</h3>
-	</div>
-{% endif %}
+	{% else %}
+		<div class='alert alert-warning' align='center'>
+			<h3>No Notes Yet!</h3>
+		</div>
+	{% endif %}
 </div>
 
 

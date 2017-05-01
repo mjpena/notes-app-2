@@ -9,7 +9,7 @@
 
 
 
-<div class='col-md-12'>
+<div class='buttons'>
 	<form action="" method="post">{% csrf_token %}
 	{{form.as_p}}
 	<input type='submit' value='Create New Note!' class='btn btn-primary btn-lg btn-block' />
@@ -17,7 +17,7 @@
 </div>
 
 
-<div class="col-md-12" style="padding-top:15px">
+<div class="buttons" style="padding-top:15px">
     <form action="" method="POST">{% csrf_token %}
     <input type="hidden" name="control" value="delete" />
     <input type="submit" value="Delete" class="btn btn-lg btn-block btn-danger" />

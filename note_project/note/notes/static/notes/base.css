@@ -1,0 +1,24 @@
+body {
+  padding-top: 50px;
+  padding-bottom: 30px;
+  background-color: #00FFFF;
+}
+
+li{
+    text-align: left;
+}
+
+p{
+    text-align: center;
+}
+
+.label{
+    text-align: center;
+}
+ .buttons{
+     text-align: center;
+ }
+ 
+ div{
+     align: center;
+ }

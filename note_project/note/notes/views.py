@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
-from notes.models import Note, Tag
+from notes.models import Note
 from notes.forms import NoteForm
 # Create your views here.
 
