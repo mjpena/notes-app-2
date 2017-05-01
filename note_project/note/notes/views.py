@@ -9,17 +9,6 @@ from notes.forms import NoteForm
 # Create your views here.
 
 def home_view(request):
-    if request.method == 'POST':
-        username = request.POST.get('username', None)
-        password = request.POST.get('password', None)
-        
-        auth = authenticate(username = username, password=password)
-        if auth is not None:
-            login(request, auth)
-            return HttpResponseRedirect(reverse('notes:home'))
-        else:
-            messages.add_message(request, messages.INFO, "Authentication Failed")
-            return HttpResponseRedirect(reverse('home'))
     return render(request, 'home.html')
 
     
