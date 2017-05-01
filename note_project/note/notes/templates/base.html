@@ -8,7 +8,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <label>{% block label %}DjangoNote - The Best Note Taking App (Not Really){% endblock label %}</label>
         {% block stylesheets %}
         <link rel="stylesheet" href="{% static 'notes/base.css' %}" />
         {% endblock stylesheets %}
@@ -16,7 +15,7 @@
 
     {% block scriptload %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="{% static 'notes/js/docs.min.js' %}"></script>
+    <script src="{% static 'notes/base.js' %}"></script>
     {% endblock scriptload %}
 
     <body role="document">

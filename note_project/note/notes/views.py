@@ -19,10 +19,10 @@ def index_view(request):
 
 def add_note(request):
     id = request.GET.get('id', None)
-    if id is None:
-        note = None
-    else:
+    if id is not None:
         note = get_object_or_404(Note, id=id)
+    else:
+        note = None
 	
 	if request.method == 'POST':
 		if request.POST.get('control') == 'delete':

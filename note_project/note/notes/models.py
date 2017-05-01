@@ -10,5 +10,5 @@ class Note(models.Model):
     body = models.TextField()
     pubTime = models.DateTimeField(auto_now_add = True)
     def __unicode__(self):
-        return self.label
+        return self.title
     

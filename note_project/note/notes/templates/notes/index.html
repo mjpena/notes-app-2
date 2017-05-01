@@ -3,17 +3,21 @@
 {% block body %}
 
 
-<div class="jumbotron">
-	<h1 align='center'>Notes!</h1>
+<div id='container'>
+	<div id='animation'>
+		<h1 align='center'>Notes!</h1>
+	</div>
 </div>
 
 
 
-<div >
+<div class = 'notes'>
 	{% if notes %}
 		{% for note in notes %}
 		<h3 class="page-header">{{note.label}}</h3>
-		{{note.body}}
+		<a>{{note.title}}</a>
+		<br>
+		<li>{{note.body}}</li>
 		{% endfor %}
 	{% else %}
 		<div class='alert alert-warning' align='center'>
