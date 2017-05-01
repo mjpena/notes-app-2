@@ -15,9 +15,9 @@
 	{% if notes %}
 		{% for note in notes %}
 		<h3 class="page-header">{{note.label}}</h3>
-		<a>{{note.title}}</a>
+		<a><b>{{note.title}}</b></a>
 		<br>
-		<li>{{note.body}}</li>
+		<a>{{note.body}}</a>
 		{% endfor %}
 	{% else %}
 		<div class='alert alert-warning' align='center'>
